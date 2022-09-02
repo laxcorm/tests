@@ -1,0 +1,10 @@
+CREATE TABLE tests(
+    id TINYINT(2) PRIMARY KEY AUTO_INCREMENT,
+    questions TEXT(200),
+    `1` TEXT(200) NOT NULL,
+    `2` TEXT(200) NOT NULL,
+    `3` TEXT(200) NOT NULL,
+    answer TINYINT(1) NOT NULL
+)
+
+
