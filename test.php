@@ -16,7 +16,8 @@
         <button type="submit">submit</button>
 
     </form>
-    <?= $_SERVER['REQUEST_METHOD']; ?>
+    <?php echo $_SERVER['REQUEST_METHOD'];
+    ?>
 </body>
 
 </html>

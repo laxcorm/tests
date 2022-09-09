@@ -1,7 +1,8 @@
 <?php
 require('mysql.php');
 
-$query = 'SELECT*FROM tests WHERE id=' . $id;
+$query = "SELECT*FROM tests WHERE id=" . $id;
+echo $query;
 $stmt = $db->prepare($query);
 $stmt->execute();
 $test = $stmt->fetchAll(PDO::FETCH_ASSOC)[0];

@@ -1,19 +1,22 @@
 <?php
 session_start();
-if ($_POST['test'] == 'back') {
-    $id = --$_SESSION['id'];
-} elseif ($_POST['test'] == 'forward') {
-    if (isset($_SESSION['id'])) {
-        $id = ++$_SESSION['id'];
-    } else {
-        $id = 1;
-        $_SESSION['id'] = $id;
+if ($_GET['test'] ?? false) {
+    $id = $_GET['test'];
+    if (isset($_SESSION['questions'][$id])) {
+        ${$_SESSION['questions'][$id]} = 'checked';
     }
-    echo $_SESSION['id'];
+    if (isset($_GET['answ'])) {
+        $_SESSION['questions'][$id - 1] = $_GET['answ'];
+    }
+    if (!isset($_SESSION['questions'][$id - 1]) && !isset($_GET['answ'])) {
+        $id = $id - 1;
+        $noanswer = true;
+    }
 }
+$id = ($id ??  1);
 require('select.php');
-
 ?>
+
 <!doctype html>
 <html lang="en">
 
@@ -30,6 +33,11 @@ require('select.php');
 
 <body>
     <div class="container">
+        <?php if ($noanswer) : ?>
+            <div class="alert alert-warning" role="alert">
+                Будь ласка, оберіть відповідь
+            </div>
+        <?php endif ?>
 
         <div class="row mt-5">
             <div class="col-12">
@@ -39,29 +47,31 @@ require('select.php');
             </div>
         </div>
 
-        <form action="<?= $_SERVER['SCRIPT_NAME'] ?>" method="post">
+        <form action="<?= $_SERVER['SCRIPT_NAME'] ?>" method="get">
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="answ" id="first" value="first">
+                <input class="form-check-input" type="radio" name="answ" id="first" value="first" <?php echo $first ?? ''; ?>>
                 <label class=" form-check-label" for="first">
                     <?= $test['first']; ?>
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="answ" id="second" value="second">
+                <input class="form-check-input" type="radio" name="answ" id="second" value="second" <?php echo $second ?? ''; ?>>
                 <label class="form-check-label" for="second">
                     <?= $test['second']; ?>
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="answ" id="third" value="third">
+                <input class="form-check-input" type="radio" name="answ" id="third" value="third" <?php echo $third ?? ''; ?>>
                 <label class="form-check-label" for="third">
                     <?= $test['third']; ?>
                 </label>
             </div>
             <div class="row mt-3">
-                <div class="col-6"><button type="submit" name="test" value="forward">Далі</button></div>
+                <div class="col-6"><button type="submit" name="test" value="<?= $id + 1 ?>">Далі</button></div>
 
-                <div class="col-6"><button type="submit" name="test" value="back">Назад</button></div>
+                <?php if ($id != 1) : ?>
+                    <div class="col-6"><button type="submit" name="test" value="<?= $id - 1  ?>">Назад</button></div>
+                <?php endif ?>
 
             </div>
 
