@@ -34,7 +34,7 @@ require('select.php');
 <body>
     <div class="container">
         <?php if ($noanswer) : ?>
-            <div class="alert alert-warning" role="alert">
+            <div class="alert alert-danger" role="alert">
                 Будь ласка, оберіть відповідь
             </div>
         <?php endif ?>
