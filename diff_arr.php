@@ -18,3 +18,4 @@ $diff = array_udiff_assoc($arr1, $arr2, 'cmp');
 foreach ($diff as $key => $value) {
     echo "$key => " . $value . "<br>";
 }
+
