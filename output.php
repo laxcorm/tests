@@ -1,8 +1,25 @@
 <?php
 session_start();
+<<<<<<< HEAD
 require('mysql.php');
 require('count.php');
 require('step.php');
+=======
+if ($_GET['test'] ?? false) {
+    $id = $_GET['test'];
+    if (isset($_SESSION['questions'][$id])) {
+        ${$_SESSION['questions'][$id]} = 'checked';
+    }
+    if (isset($_GET['answ'])) {
+        $_SESSION['questions'][$id - 1] = $_GET['answ'];
+    }
+    if (!isset($_SESSION['questions'][$id - 1]) && !isset($_GET['answ'])) {
+        $id = $id - 1;
+        $noanswer = true;
+    }
+}
+$id = ($id ??  1);
+>>>>>>> 5e7dc8569588b9e9f4fe5e8f4cc078f493980e23
 require('select.php');
 ?>
 
@@ -21,10 +38,15 @@ require('select.php');
 </head>
 
 <body>
+<<<<<<< HEAD
 
     <div class="container">
       
         <?php if ($noanswer ?? false) : ?>
+=======
+    <div class="container">
+        <?php if ($noanswer) : ?>
+>>>>>>> 5e7dc8569588b9e9f4fe5e8f4cc078f493980e23
             <div class="alert alert-danger" role="alert">
                 Будь ласка, оберіть відповідь
             </div>
@@ -38,6 +60,7 @@ require('select.php');
             </div>
         </div>
 
+<<<<<<< HEAD
         <form action="<?php echo $_SERVER['SCRIPT_NAME'] ?>" method="get">
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="answ" id="first" value="answer_1" <?php echo $answer_1 ?? ''; ?>>
@@ -62,6 +85,32 @@ require('select.php');
 
                 <?php if ($id != 1) : ?>
                     <div class="col-6"><button type="submit" name="id" value="<?php echo  -$id  ?>">Назад</button></div>
+=======
+        <form action="<?= $_SERVER['SCRIPT_NAME'] ?>" method="get">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="answ" id="first" value="first" <?php echo $first ?? ''; ?>>
+                <label class=" form-check-label" for="first">
+                    <?= $test['first']; ?>
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="answ" id="second" value="second" <?php echo $second ?? ''; ?>>
+                <label class="form-check-label" for="second">
+                    <?= $test['second']; ?>
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="answ" id="third" value="third" <?php echo $third ?? ''; ?>>
+                <label class="form-check-label" for="third">
+                    <?= $test['third']; ?>
+                </label>
+            </div>
+            <div class="row mt-3">
+                <div class="col-6"><button type="submit" name="test" value="<?= $id + 1 ?>">Далі</button></div>
+
+                <?php if ($id != 1) : ?>
+                    <div class="col-6"><button type="submit" name="test" value="<?= $id - 1  ?>">Назад</button></div>
+>>>>>>> 5e7dc8569588b9e9f4fe5e8f4cc078f493980e23
                 <?php endif ?>
 
             </div>

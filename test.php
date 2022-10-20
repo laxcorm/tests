@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 
 <!-- <!DOCTYPE html>
 <html lang="en">
+=======
+<!DOCTYPE html>
+<html lang="en">
+
+>>>>>>> 5e7dc8569588b9e9f4fe5e8f4cc078f493980e23
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,6 +22,7 @@
         <button type="submit">submit</button>
 
     </form>
+<<<<<<< HEAD
   
     // echo $_SERVER['REQUEST_METHOD'];
     //echo $_SERVER['SCRIPT_NAME'];
@@ -43,3 +50,10 @@ $answer = 'answer_1';
 </body>
 
 </html> -->
+=======
+    <?php echo $_SERVER['REQUEST_METHOD'];
+    ?>
+</body>
+
+</html>
+>>>>>>> 5e7dc8569588b9e9f4fe5e8f4cc078f493980e23
