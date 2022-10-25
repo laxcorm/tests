@@ -4,6 +4,7 @@ require('mysql.php');
 require('count.php');
 require('step.php');
 require('select.php');
+require('answers.php');
 ?>
 
 <!doctype html>
@@ -57,14 +58,7 @@ require('select.php');
                     <?php echo $test['answer_3']; ?>
                 </label>
             </div>
-            <div class="row mt-3">
-                <div class="col-6"><button type="submit" name="id" value="<?php echo  $id ?>">Далі</button></div>
-
-                <?php if ($id != 1) : ?>
-                    <div class="col-6"><button type="submit" name="id" value="<?php echo  -$id  ?>">Назад</button></div>
-                <?php endif ?>
-
-            </div>
+            <?php require('arrows.php'); ?>
 
         </form>
 

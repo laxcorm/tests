@@ -1,13 +1,17 @@
 <?php
 
-if(!isset($_SESSION['count']) || $_SERVER['REQUEST_METHOD'] == 'POST'){
+/* if(!isset($_SESSION['count']) || $_SERVER['REQUEST_METHOD'] != 'POST'){
     $query = "SELECT COUNT(*) FROM tests";
     $stmt = $db->prepare($query);
     $stmt->execute();
     $_SESSION['count'] = (int)$stmt->fetch(PDO::FETCH_ASSOC)['COUNT(*)'];
 }
-    $count = $_SESSION['count'] ?? 0;
+    $count = $_SESSION['count'] ?? 0; */
 
+    $query = "SELECT COUNT(*) FROM tests";
+    $stmt = $db->prepare($query);
+    $stmt->execute();
+    $count = (int)$stmt->fetch(PDO::FETCH_ASSOC)['COUNT(*)'];
 
 
 

@@ -1,4 +1,5 @@
+<form action="test4.php" method="get">
+    <input type="submit" name="id" value="just">
+</form>
 <?php
-    echo "JImmy";
-    $str = (int) 'save';
-    var_dump($str);
+echo $_GET['id'];
