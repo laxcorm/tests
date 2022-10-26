@@ -11,10 +11,10 @@ if ($_GET['id'] ?? false) {
     $id = $_GET['id'];
     $id = $id + 1;
     $id = abs($id);
-    echo $_GET['id'];
-} else {
+    
+} /* else {
     $id = 1;
-}
+} */
 
 //update
 /* if (isset($_SERVER['HTTP_REFERER'])) {

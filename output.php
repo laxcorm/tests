@@ -2,9 +2,9 @@
 session_start();
 require('mysql.php');
 require('count.php');
-require('step.php');
-require('select.php');
 require('answers.php');
+//require('step.php');
+require('select.php');
 ?>
 
 <!doctype html>
