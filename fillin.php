@@ -7,7 +7,7 @@ require('mysql.php');
     exit; 
 } */
 // require('pagination.php');
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+/* if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (empty($_POST['question'])) {
         //error
     } elseif (empty($_POST['answ'])) {
@@ -15,17 +15,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } elseif (!empty($_POST['question']) && !empty($_POST['answ'])) {
         require('input.php');
     }
- }
- require('count.php');
+ } */
+require('count.php');
 //require('step.php');
-
+require('answer_q.php');
 require('select.php');
 if (isset($test['answer'])) {
     ${$test['answer']} = 'checked';
 }
 
 //настройка
-if($_POST['input'] ?? false){
+if ($_POST['input'] ?? false) {
     echo $_POST['input'];
 }
 // $_SESSION['answer'] = $test['answer'];
@@ -53,7 +53,7 @@ if($_POST['input'] ?? false){
 
     <div class="container">
 
-        
+
 
 
         <form method="post" action="<?php echo $_SERVER['SCRIPT_NAME'] ?> ">
@@ -98,7 +98,7 @@ if($_POST['input'] ?? false){
                     <input type="text" autocomplete="off" name="answer_3" class="form-control" aria-label="Text input with radio button" value="<?php echo $test['answer_3'] ?? ''; ?>">
                 </div>
             </div>
-            <div class="col-3"><button class="btn btn-outline-info" type="submit" name="input" value="<?php echo $test['id']>$count ? 'save' : $test['id'] ?>">Save</button></div>
+            <div class="col-3"><button class="btn btn-outline-info" type="submit" name="input" value="<?php echo $test['id'] > $count ? 'save' : $test['id'] /*select - выводить id*/?>">Save</button></div>
         </form>
     </div>
 
