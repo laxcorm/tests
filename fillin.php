@@ -1,6 +1,6 @@
 <?php
 session_start();
-$_SESSION['authorized'] = true;
+//$_SESSION['authorized'] = true;
 require('mysql.php');
 
 /* if ($_SESSION['authorized'] ?? false) {
@@ -16,8 +16,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         require('input.php');
     }
  }
-require('count.php');
-require('step.php');
+ require('count.php');
+//require('step.php');
+
 require('select.php');
 if (isset($test['answer'])) {
     ${$test['answer']} = 'checked';

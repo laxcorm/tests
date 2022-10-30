@@ -4,7 +4,7 @@
             $id = 1;
          } */
 
-if ($_GET['id'] ?? false) {
+/* if ($_GET['id'] ?? false) {
     $id = $_GET['id'];
     if (isset($_GET['answ'])) {
         $_SESSION['questions'][abs($id)] = $_GET['answ'];
@@ -18,10 +18,10 @@ if ($_GET['id'] ?? false) {
     }
 } else {
     $id = 1;
-}
+} */
 
 //вторая версия
-if ($_GET['id'] ?? false) {
+/* if ($_GET['id'] ?? false) {
     $id = $_GET['id'];
     if ((!isset($_SESSION['questions'][abs(++$id)])) && !isset($_GET['answ'])) {
         --$id;
@@ -31,6 +31,31 @@ if ($_GET['id'] ?? false) {
     }
 
     if (isset($_SESSION['questions'][abs($id)])) {
+        ${$_SESSION['questions'][$id]} = 'checked';
+    }
+} else {
+    $id = 1;
+}
+ */
+//третья версия
+if (
+    $_GET['id'] ?? false
+) {
+    $id = $_GET['id'];
+
+    if ((count($_SESSION['questions'] ?? [])) < $id+1 && !isset($_GET['answ'])
+    ) {
+        $noanswer = true;
+    }
+    /* elseif (isset($_GET['answ'])) {
+        $_SESSION['questions'][abs($id)] = $_GET['answ'];
+    } */ else {
+        if (isset($_GET['answ'])) {
+            $_SESSION['questions'][abs($id)] = $_GET['answ'];
+        }
+        $id = abs($id + 1);
+    }
+    if (isset($_SESSION['questions'][$id])) {
         ${$_SESSION['questions'][$id]} = 'checked';
     }
 } else {
