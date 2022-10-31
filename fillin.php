@@ -1,6 +1,6 @@
 <?php
 session_start();
-//$_SESSION['authorized'] = true;
+// $_SESSION['authorized'] = true;
 require('mysql.php');
 
 /* if ($_SESSION['authorized'] ?? false) {
@@ -63,7 +63,7 @@ if ($_POST['input'] ?? false) {
                     <div class="form-group">
 
                         <textarea class="form-control" name="question" row mt-3s="3">
-                                <?php echo $test['questions'] ?>
+                                <?php echo $test['questions'] ?? '' ?>
                         </textarea>
                     </div>
                 </div>
@@ -75,7 +75,7 @@ if ($_POST['input'] ?? false) {
                             <input type="radio" name="answ" value="answer_1" aria-label="Radio button for following text input" <?php echo $answer_1 ?? ''; ?>>
                         </div>
                     </div>
-                    <input type="text" autocomplete="off" name="answer_1" class="form-control" aria-label="Text input with radio button" value="<?php echo $test['answer_1']; ?>">
+                    <input type="text" autocomplete="off" name="answer_1" class="form-control" aria-label="Text input with radio button" value="<?php echo $test['answer_1'] ?? ''; ?>">
                 </div>
             </div>
             <div class=" row mt-3">
@@ -98,18 +98,18 @@ if ($_POST['input'] ?? false) {
                     <input type="text" autocomplete="off" name="answer_3" class="form-control" aria-label="Text input with radio button" value="<?php echo $test['answer_3'] ?? ''; ?>">
                 </div>
             </div>
-            <div class="col-3"><button class="btn btn-outline-info" type="submit" name="input" value="<?php echo $test['id'] > $count ? 'save' : $test['id'] /*select - выводить id*/?>">Save</button></div>
+            <div class="col-3"><button class="btn btn-outline-info" type="submit" name="input" value="<?php echo $id > $count ? 'save' : $id /*select - выводить id*/?>">Save</button></div>
         </form>
     </div>
 
     <div class="row mt-3">
-        <?php //if (!$test['id']) : 
+        <?php //if (!$id) : 
         ?>
         <!-- <div class=" col-3"> <button class="btn btn-outline-info" type="submit" name="test" value="<?php echo $id ?>"> <span class="material-icons">arrow_back_ios</span></button></div> -->
 
-        <?php if (isset($test['id'])) : ?>
+        <?php if ($id <= $count) : ?>
             <a href="<?php echo $_SERVER['SCRIPT_NAME'] ?>" class="btn btn-primary btn-lg" role="button">+</a>
-            <a href="delete.php?=<?php echo $test['id'] ?>" class="btn btn-primary btn-lg" role="button">Delete</a>
+            <a href="delete.php?=<?php echo $id ?>" class="btn btn-primary btn-lg" role="button">Delete</a>
         <?php endif ?>
 
         <!-- <div class="col-3"><button class="btn btn-outline-info" type="submit" name="test" value="<?php echo $_SERVER['SCRIPT_NAME'] ?>">+</button></div> -->

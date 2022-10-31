@@ -16,3 +16,4 @@ if (
 } else {
     $id = 1;
 }
+echo "id - $id";
