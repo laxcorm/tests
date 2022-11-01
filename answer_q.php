@@ -5,10 +5,10 @@ if (
 ) {
     $id = $_POST['id'];
 
-    if ($count < $id + 1) {
-        exit();
-    }
-    $id = abs($abs);
+    // if ($count < $id) {
+    //     exit();
+    // }
+    $id = abs($id);
 
     /* elseif (isset($_GET['answ'])) {
         $_SESSION['questions'][abs($id)] = $_GET['answ'];

@@ -99,6 +99,7 @@ if ($_POST['input'] ?? false) {
                 </div>
             </div>
             <div class="col-3"><button class="btn btn-outline-info" type="submit" name="input" value="<?php echo $id > $count ? 'save' : $id /*select - выводить id*/?>">Save</button></div>
+            <div class="col-3"><button class="btn btn-outline-info" type="submit" name="id" value="<?php echo $count + 1 ?>">+</button></div>
         </form>
     </div>
 
@@ -109,7 +110,7 @@ if ($_POST['input'] ?? false) {
 
         <?php if ($id <= $count) : ?>
             <a href="<?php echo $_SERVER['SCRIPT_NAME'] ?>" class="btn btn-primary btn-lg" role="button">+</a>
-            <a href="delete.php?=<?php echo $id ?>" class="btn btn-primary btn-lg" role="button">Delete</a>
+            <a href="delete.php?id=<?php echo $id ?>" class="btn btn-primary btn-lg" role="button">Delete</a>
         <?php endif ?>
 
         <!-- <div class="col-3"><button class="btn btn-outline-info" type="submit" name="test" value="<?php echo $_SERVER['SCRIPT_NAME'] ?>">+</button></div> -->

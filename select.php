@@ -19,6 +19,7 @@ if ($count < $id) {
 
 echo $query;
         echo "<br>";
+        echo $_SERVER['SCRIPT_NAME'];
     $stmt = $db->prepare($query);
     $stmt->execute();
     $test = $stmt->fetchAll(PDO::FETCH_ASSOC);
