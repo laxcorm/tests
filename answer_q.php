@@ -1,18 +1,11 @@
 <?php
 
 if (
-    $_POST['id'] ?? false
+    $_GET['id'] ?? false
 ) {
-    $id = $_POST['id'];
-
-    // if ($count < $id) {
-    //     exit();
-    // }
-    $id = abs($id);
-
-    /* elseif (isset($_GET['answ'])) {
-        $_SESSION['questions'][abs($id)] = $_GET['answ'];
-    } */
+    echo $_GET['id'];//временно
+echo "<br>";//временно
+    $id = $_GET['id'];
 } else {
     $id = 1;
 }
