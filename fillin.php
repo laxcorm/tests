@@ -98,7 +98,8 @@ if ($_POST['input'] ?? false) {
                     <input type="text" autocomplete="off" name="answer_3" class="form-control" aria-label="Text input with radio button" value="<?php echo $test['answer_3'] ?? ''; ?>">
                 </div>
             </div>
-            <div class="col-3"><button class="btn btn-outline-info" type="submit" name="input" value="<?php echo $id > $count ? 'save' : $id /*select - выводить id*/ ?>">Save</button></div>
+            <div class="col-3"><button class="btn btn-outline-info" type="submit" name="input" value="<?php echo $id  /*select - выводить id*/ ?>">Save</button></div>
+            <!-- вместо count вставить сессию - count -->
             <div class="col-3"><button class="btn btn-outline-info" type="submit" name="id" value="<?php echo $count + 1 ?>">+</button></div>
         </form>
     </div>
