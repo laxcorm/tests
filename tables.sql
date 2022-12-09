@@ -1,4 +1,4 @@
-CREATE TABLE testsid(
+CREATE TABLE tests(
     id TINYINT(2),
     questions VARCHAR(200),
     answer_1 VARCHAR(200) NOT NULL,
@@ -6,3 +6,4 @@ CREATE TABLE testsid(
     answer_3 VARCHAR(200) NOT NULL,
     answer VARCHAR(8) NOT NULL
 )
+

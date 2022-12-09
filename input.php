@@ -1,9 +1,9 @@
 <?php
-
+session_start();
 $id = $_POST['input'];
 if ($id > $_SESSION['count']) {
+    
     $question = trim($_POST['question']);
-
     $answer = $_POST['answ'];
     $answer_1 = trim($_POST['answer_1']);
     $answer_2 = trim($_POST['answer_2']);
@@ -18,6 +18,7 @@ if ($id > $_SESSION['count']) {
     $stmt->bindValue(':answer_3', $answer_3, PDO::PARAM_STR);
     $stmt->bindValue(':answer', $answer, PDO::PARAM_STR);
     $stmt->execute();
+    $_SESSION['count']=$id;
 } else {
     //$id = $_POST['input'];
 
@@ -36,4 +37,4 @@ if ($id > $_SESSION['count']) {
     $stmt->bindValue(':answer', $answer, PDO::PARAM_STR);
     $stmt->execute();
 }
-
+header("Location: http://".$_SERVER['HTTP_HOST']."/fillin.php");

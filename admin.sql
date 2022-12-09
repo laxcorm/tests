@@ -6,3 +6,7 @@ CREATE TABLE IF NOT EXISTS admin(
 
 INSERT INTO admin (admin, password) VALUES ('administrator', 'admin_pass');
 
+CREATE TABLE IF NOT EXISTS numbers
+(
+  id INT(3)
+)
