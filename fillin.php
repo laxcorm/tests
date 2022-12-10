@@ -34,6 +34,9 @@ if ($_POST['input'] ?? false) {
 // if ($_SESSION['questions']) {
 //     require_once('checked_in.php');
 // }
+echo "<br>";
+echo $_SESSION['count'];
+echo "<br>";
 ?>
 <!doctype html>
 <html lang="en">
@@ -52,11 +55,7 @@ if ($_POST['input'] ?? false) {
 <body>
 
     <div class="container">
-
-
-
-
-        <form method="post" action="<?php echo $_SERVER['SCRIPT_NAME'] ?> ">
+            <form method="post" action="<?php echo 'input.php'; ?> ">
             <div class="row mt-3">
                 <div class="col">
                     <!-- <form> -->

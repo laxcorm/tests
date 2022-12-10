@@ -1,5 +1,6 @@
 <?php
 session_start();
+require('mysql.php');
 $id = $_POST['input'];
 if ($id > $_SESSION['count']) {
     
