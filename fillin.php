@@ -99,7 +99,7 @@ echo "<br>";
             </div>
             <div class="col-3"><button class="btn btn-outline-info" type="submit" name="input" value="<?php echo $id  /*select - выводить id*/ ?>">Save</button></div>
             <!-- вместо count вставить сессию - count -->
-            <div class="col-3"><button class="btn btn-outline-info" type="submit" name="id" value="<?php echo $count + 1 ?>">+</button></div>
+            <!-- <div class="col-3"><button class="btn btn-outline-info" type="submit" name="id" value="<?php //echo $count + 1 ?>">+</button></div> -->
         </form>
     </div>
 
@@ -109,7 +109,7 @@ echo "<br>";
         <!-- <div class=" col-3"> <button class="btn btn-outline-info" type="submit" name="test" value="<?php echo $id ?>"> <span class="material-icons">arrow_back_ios</span></button></div> -->
 
         <?php if ($id <= $count) : ?>
-            <!-- <a href="<?php echo $_SERVER['SCRIPT_NAME'] ?>" class="btn btn-primary btn-lg" role="button">+</a> -->
+            <a href="<?php echo $_SERVER['SCRIPT_NAME'] ?>" class="btn btn-primary btn-lg" role="button">+</a>
             <a href="delete.php?id=<?php echo $id ?>" class="btn btn-primary btn-lg" role="button">Delete</a>
         <?php endif ?>
 
