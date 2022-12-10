@@ -27,7 +27,3 @@ if ($count < $id) {
     if ($test) {
         $test =  $test[0];
     }
-
-
-
-var_dump($test);
