@@ -5,6 +5,10 @@ require('count.php');
 require('answers.php');
 //require('step.php');
 require('select.php');
+if(empty($test)){
+    echo "No data to output";
+    exit;
+}
 ?>
 
 <!doctype html>
