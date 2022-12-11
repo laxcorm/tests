@@ -18,8 +18,9 @@ if ($id > $_SESSION['count']) {
     $stmt->bindValue(':answer_2', $answer_2, PDO::PARAM_STR);
     $stmt->bindValue(':answer_3', $answer_3, PDO::PARAM_STR);
     $stmt->bindValue(':answer', $answer, PDO::PARAM_STR);
-    $stmt->execute();
-    $_SESSION['count']=$id;
+    if ($stmt->execute()) {
+        $_SESSION['count'] = $id;
+    }
 } else {
     //$id = $_POST['input'];
 

@@ -13,11 +13,9 @@ if (!isset($_SESSION['count'])) {
     $stmt = $db->prepare($query);
     $stmt->execute();
     $_SESSION['count'] = (int)$stmt->fetch(PDO::FETCH_ASSOC)['COUNT(*)'];
-    
-}
-else{
+} 
     $count = $_SESSION['count'];
-}
+
 
 
 /* if ( $_SESSION['count'] || $_SERVER['REQUEST_METHOD'] == 'POST') {
