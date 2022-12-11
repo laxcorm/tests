@@ -1,16 +1,18 @@
 <?php
 
-if (
-    $_GET['id'] ?? false
-) {
-    echo $_GET['id'];//временно
-echo "<br>";//временно
-    $id = $_GET['id'];
+if (isset($_GET['new'])) {
+    $id = $_SESSION['count'] + 1;
+} else {
+    if (isset($_GET['id'])) {
+        echo $_GET['id']; //временно
+        echo "<br>"; //временно
+        $id = $_GET['id'];
+    } else {
+        $id = 1;
+    }
     require('select.php');
 }
-// else {
-//     $id = 1;
-// }
+
 //for test id
 if (isset($id)) {
     echo "id - $id";
