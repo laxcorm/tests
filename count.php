@@ -12,8 +12,8 @@ if (!isset($_SESSION['count'])) {
     $query = "SELECT COUNT(*) FROM tests";
     $stmt = $db->prepare($query);
     $stmt->execute();
-    $count = (int)$stmt->fetch(PDO::FETCH_ASSOC)['COUNT(*)'];
-    $_SESSION['count'] = $count;
+    $_SESSION['count'] = (int)$stmt->fetch(PDO::FETCH_ASSOC)['COUNT(*)'];
+    
 }
 else{
     $count = $_SESSION['count'];

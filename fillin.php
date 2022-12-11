@@ -16,9 +16,9 @@ require('mysql.php');
         require('input.php');
     }
  } */
-require('count.php');
-//require('step.php');
-require('answer_q.php');
+ //require('step.php');
+ require('answer_q.php');
+ require('count.php');
 //require('select.php');
 if (isset($test['answer'])) {
     ${$test['answer']} = 'checked';
@@ -131,7 +131,7 @@ echo "<br>";
     </div>
     <div class="row mt-3">
         <?php
-        if (isset($id) ?? false) {
+        if ($id<=$_SESSION['count']) {
             require('arrows_fil.php');
         }
         ?>
