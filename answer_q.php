@@ -6,7 +6,12 @@ if (
     echo $_GET['id'];//временно
 echo "<br>";//временно
     $id = $_GET['id'];
-} else {
-    $id = 1;
+    require('select.php');
 }
-echo "id - $id";
+// else {
+//     $id = 1;
+// }
+//for test id
+if (isset($id)) {
+    echo "id - $id";
+}

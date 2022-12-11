@@ -19,7 +19,7 @@ require('mysql.php');
 require('count.php');
 //require('step.php');
 require('answer_q.php');
-require('select.php');
+//require('select.php');
 if (isset($test['answer'])) {
     ${$test['answer']} = 'checked';
 }
@@ -109,7 +109,7 @@ echo "<br>";
         <!-- <div class=" col-3"> <button class="btn btn-outline-info" type="submit" name="test" value="<?php echo $id ?>"> <span class="material-icons">arrow_back_ios</span></button></div> -->
 
         <?php if ($id <= $count) : ?>
-            <a href="<?php echo $_SERVER['SCRIPT_NAME'] ?>" class="btn btn-primary btn-lg" role="button">+</a>
+            <a href="<?php echo $_SERVER['SCRIPT_NAME'].'?new' ?>" class="btn btn-primary btn-lg" role="button">+</a>
             <a href="delete.php?id=<?php echo $id ?>" class="btn btn-primary btn-lg" role="button">Delete</a>
         <?php endif ?>
 
@@ -131,7 +131,9 @@ echo "<br>";
     </div>
     <div class="row mt-3">
         <?php
-        require('arrows_fil.php');
+        if (isset($id) ?? false) {
+            require('arrows_fil.php');
+        }
         ?>
     </div>
 

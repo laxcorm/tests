@@ -38,4 +38,4 @@ if ($id > $_SESSION['count']) {
     $stmt->bindValue(':answer', $answer, PDO::PARAM_STR);
     $stmt->execute();
 }
-header("Location: http://".$_SERVER['HTTP_HOST']."/fillin.php");
+header("Location: http://".$_SERVER['HTTP_HOST']."/fillin.php?id=1");
