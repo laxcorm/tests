@@ -1,7 +1,11 @@
 <div class="row mt-3">
-    <div class="col-6"><button type="submit" name="id" value="<?php echo  $id ?>">Далі</button></div>
+    <div class="col-6"><button type="submit" name="id" value="<?php echo  $id ?>">
+            <?php echo ($id != $count) ? "Далі" : "Завершення" ?>
+        </button></div>
 
     <?php if ($id != 1) : ?>
-        <div class="col-6"><button type="submit" name="id" value="<?php echo  -$id  ?>">Назад</button></div>
+        <div class="col-6"><button type="submit" name="id" value="<?php echo  -$id  ?>">
+                Назад
+            </button></div>
     <?php endif ?>
 </div>
