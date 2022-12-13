@@ -16,9 +16,9 @@ require('mysql.php');
         require('input.php');
     }
  } */
- //require('step.php');
- require('answer_q.php');
- require('count.php');
+//require('step.php');
+require('answer_q.php');
+require('count.php');
 //require('select.php');
 if (isset($test['answer'])) {
     ${$test['answer']} = 'checked';
@@ -55,7 +55,7 @@ echo "<br>";
 <body>
 
     <div class="container">
-            <form method="post" action="<?php echo 'input.php'; ?> ">
+        <form method="post" action="<?php echo 'input.php'; ?> ">
             <div class="row mt-3">
                 <div class="col">
                     <!-- <form> -->
@@ -99,43 +99,49 @@ echo "<br>";
             </div>
             <div class="col-3"><button class="btn btn-outline-info" type="submit" name="input" value="<?php echo $id  /*select - выводить id*/ ?>">Save</button></div>
             <!-- вместо count вставить сессию - count -->
-            <!-- <div class="col-3"><button class="btn btn-outline-info" type="submit" name="id" value="<?php //echo $count + 1 ?>">+</button></div> -->
+            <!-- <div class="col-3"><button class="btn btn-outline-info" type="submit" name="id" value="<?php //echo $count + 1 
+                                                                                                        ?>">+</button></div> -->
         </form>
-    </div>
+        <div class="row mt-3">
+            <?php //if (!$id) : 
+            ?>
+            <!-- <div class=" col-3"> <button class="btn btn-outline-info" type="submit" name="test" value="<?php echo $id ?>"> <span class="material-icons">arrow_back_ios</span></button></div> -->
 
-    <div class="row mt-3">
-        <?php //if (!$id) : 
-        ?>
-        <!-- <div class=" col-3"> <button class="btn btn-outline-info" type="submit" name="test" value="<?php echo $id ?>"> <span class="material-icons">arrow_back_ios</span></button></div> -->
+            <?php if ($id <= $count) : ?>
+                <a href="<?php echo $_SERVER['SCRIPT_NAME'] . '?new' ?>" class="btn btn-primary btn-lg" role="button">+</a>
+                <a href="delete.php?id=<?php echo $id ?>" class="btn btn-primary btn-lg" role="button">Delete</a>
+            <?php endif ?>
 
-        <?php if ($id <= $count) : ?>
-            <a href="<?php echo $_SERVER['SCRIPT_NAME'].'?new' ?>" class="btn btn-primary btn-lg" role="button">+</a>
-            <a href="delete.php?id=<?php echo $id ?>" class="btn btn-primary btn-lg" role="button">Delete</a>
-        <?php endif ?>
+            <!-- <div class="col-3"><button class="btn btn-outline-info" type="submit" name="test" value="<?php echo $_SERVER['SCRIPT_NAME'] ?>">+</button></div> -->
+            <!-- <div class="col-3"><button class="btn btn-outline-info" type="submit" name="test" value="delete.php?id=<?php echo $id ?>">Delete</button></div> -->
 
-        <!-- <div class="col-3"><button class="btn btn-outline-info" type="submit" name="test" value="<?php echo $_SERVER['SCRIPT_NAME'] ?>">+</button></div> -->
-        <!-- <div class="col-3"><button class="btn btn-outline-info" type="submit" name="test" value="delete.php?id=<?php echo $id ?>">Delete</button></div> -->
+            <!-- <div class=" col-3"> <button class="btn btn-outline-info" type="submit" name="test" value="<?php echo $id ?>"> <span class="material-icons">arrow_back_ios</span></button></div> -->
+            <!-- <div class="col-3"> <button class="btn btn-outline-info" type="submit" name="test" value="<?php echo $id ?>"><span class="material-icons"> arrow_forward_ios</span></button></div> -->
 
-        <!-- <div class=" col-3"> <button class="btn btn-outline-info" type="submit" name="test" value="<?php echo $id ?>"> <span class="material-icons">arrow_back_ios</span></button></div> -->
-        <!-- <div class="col-3"> <button class="btn btn-outline-info" type="submit" name="test" value="<?php echo $id ?>"><span class="material-icons"> arrow_forward_ios</span></button></div> -->
-
-        <?php //endif 
-        ?>
-        <!-- <div class="col"><input class="btn btn-primary" type="submit" value="Submit"></div>
+            <?php //endif 
+            ?>
+            <!-- <div class="col"><input class="btn btn-primary" type="submit" value="Submit"></div>
                 <span class="material-icons">
                     arrow_back
                 </span>
                 <span class="material-icons">
                     arrow_forward
                 </span> -->
+        </div>
+        <div class="row mt-3">
+            <?php
+            if ($id <= $_SESSION['count']) {
+                require('arrows_fil.php');
+            }
+            ?>
+        </div>
+        <div class="row mt-3">
+        <a href="logout.php" class="btn btn-secondary btn-lg" role="button">Logout</a>
+                
+        </div>
     </div>
-    <div class="row mt-3">
-        <?php
-        if ($id<=$_SESSION['count']) {
-            require('arrows_fil.php');
-        }
-        ?>
-    </div>
+
+
 
 
     <!-- Optional JavaScript -->

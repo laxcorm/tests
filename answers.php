@@ -42,14 +42,15 @@ if (
     $_GET['id'] ?? false
 ) {
     $id = $_GET['id'];
-
-    if ((count($_SESSION['questions'] ?? [])) < $id+1 && !isset($_GET['answ'])
+    
+    if ((count($_SESSION['questions'] ?? [])) < $id + 1 && !isset($_GET['answ'])
     ) {
         $noanswer = true;
     }
     /* elseif (isset($_GET['answ'])) {
         $_SESSION['questions'][abs($id)] = $_GET['answ'];
     } */ else {
+
         if (isset($_GET['answ'])) {
             $_SESSION['questions'][abs($id)] = $_GET['answ'];
         }
@@ -57,6 +58,9 @@ if (
     }
     if (isset($_SESSION['questions'][$id])) {
         ${$_SESSION['questions'][$id]} = 'checked';
+    }
+    if ($id == $count) {
+        header("Location: http://" . $_SERVER['HTTP_HOST'] . "/final.php");
     }
 } else {
     $id = 1;
