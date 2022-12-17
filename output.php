@@ -5,7 +5,7 @@ require('count.php');
 require('answers.php');
 //require('step.php');
 require('select.php');
-if(empty($test)){
+if (empty($test)) {
     echo "No data to output";
     exit;
 }
@@ -13,7 +13,8 @@ if(empty($test)){
 
 <!doctype html>
 <html lang="en">
-<?php echo $count. "-". $id  ?>
+<?php echo $count . "-" . $id  ?>
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -28,7 +29,7 @@ if(empty($test)){
 <body>
 
     <div class="container">
-      
+
         <?php if ($noanswer ?? false) : ?>
             <div class="alert alert-danger" role="alert">
                 Будь ласка, оберіть відповідь
@@ -36,6 +37,39 @@ if(empty($test)){
         <?php endif ?>
 
         <div class="row mt-5">
+            <div class="col-6" id='timer'><?php echo $_SESSION['checkout']; ?></div>
+            <div class="col-6" id='timejs'></div>
+            <script type="text/javascript">
+                // function timer( obj , chckout) {
+               
+                    let current = Date.now();
+                    document.getElementById('timejs').innerHTML = new Date(current).toLocaleString([], {
+                        hour: '2-digit',
+                        minute: '2-digit',
+                        second: '2-digit'
+                    });
+                 //     let toCheck = chckout - current;
+                //     //использовать только один объект
+
+                //    // obj.setTime(toCheck);
+                //     obj.setTime(chckout);
+
+                //     document.getElementById("timer").innerHTML = obj.toLocaleString([], {
+                //         minute: '2-digit',
+                //         second: '2-digit'
+                //     });
+                // }
+
+                // // const timer = time => document.getElementById('timer').innerHTML = fmt(time);
+
+                // //let dateObj = new Date();
+                // let checkout = <?php echo $_SESSION['checkout']; ?>;
+                // let dateObj = new Date();
+
+                // document.addEventListener('DOMContentLoaded', function() {
+                //     setInterval(timer, 100, dateObj, checkout);
+                // }, false);
+            </script>
             <div class="col-12">
                 <p>
                     <?php echo $test['questions']; ?>
