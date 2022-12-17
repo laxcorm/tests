@@ -38,7 +38,9 @@ if (empty($test)) {
 
         <div class="row mt-5">
             <div class="col-6" id='timer'></div>
-            <div><?php echo $_SESSION['checkout'] ." - ". time(); ?></div>
+            <div class="col-3"><?php echo $_SESSION['checkout'] ." - ". time(); ?></div>
+            <br>
+            <div id = 'left' class="col-3"></div>
             <script type="text/javascript">
                 let checkout = <?php echo $_SESSION['checkout']; ?>;
                 let current = <?php echo time(); ?>;
@@ -57,6 +59,7 @@ if (empty($test)) {
                         }
                         
                     timer.count = left;
+                    document.getElementById('left').innerHTML =timer.count;
                     setInterval(timer, 1000);
                  //     let toCheck = chckout - current;
                 //     //использовать только один объект
