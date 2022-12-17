@@ -37,17 +37,27 @@ if (empty($test)) {
         <?php endif ?>
 
         <div class="row mt-5">
-            <div class="col-6" id='timer'><?php echo $_SESSION['checkout']; ?></div>
-            <div class="col-6" id='timejs'></div>
+            <div class="col-6" id='timer'></div>
+            <div><?php echo $_SESSION['checkout'] ." - ". time(); ?></div>
             <script type="text/javascript">
+                let checkout = <?php echo $_SESSION['checkout']; ?>;
+                let current = <?php echo time(); ?>;
+                let left = checkout - current;
+                let timeObj = new Date();
                 // function timer( obj , chckout) {
-               
-                    let current = Date.now();
-                    document.getElementById('timejs').innerHTML = new Date(current).toLocaleString([], {
-                        hour: '2-digit',
-                        minute: '2-digit',
-                        second: '2-digit'
-                    });
+                    //document.getElementById('timer').innerHTML = timeObj.toLocaleString([], {minute: '2-digit',second: '2-digit'});
+
+                    function timer(){
+                        // if(typeof(timer.count) == 'undefined'){
+                            //     timer.count = left;
+                            // }
+                            timer.count = timer.count - 1000;
+                            timeObj.setTime(timer.count);
+                            document.getElementById('timer').innerHTML = timeObj.toLocaleString([], {minute: '2-digit',second: '2-digit'});
+                        }
+                        
+                    timer.count = left;
+                    setInterval(timer, 1000);
                  //     let toCheck = chckout - current;
                 //     //использовать только один объект
 
@@ -63,7 +73,6 @@ if (empty($test)) {
                 // // const timer = time => document.getElementById('timer').innerHTML = fmt(time);
 
                 // //let dateObj = new Date();
-                // let checkout = <?php echo $_SESSION['checkout']; ?>;
                 // let dateObj = new Date();
 
                 // document.addEventListener('DOMContentLoaded', function() {

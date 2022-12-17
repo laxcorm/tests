@@ -64,8 +64,8 @@ if (
     }
 } else {
     $id = 1;
-    if (!isset($_SESSION['checkout'])) {
-        $_SESSION['checkout'] = time();
+    if (!$_SESSION['checkout'] ?? false) {
+        $_SESSION['checkout'] = time() + 600000;
     }
 }
 
