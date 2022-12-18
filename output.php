@@ -38,29 +38,29 @@ if (empty($test)) {
 
         <div class="row mt-5">
             <div class="col-6" id='timer'></div>
-            <div class="col-3"><?php echo $_SESSION['checkout'] ." - ". time(); ?></div>
+            <div class="col-3"><?php echo $_SESSION['checkout'] ." - ". microtime(); ?></div>
             <br>
             <div id = 'left' class="col-3"></div>
             <script type="text/javascript">
                 let checkout = <?php echo $_SESSION['checkout']; ?>;
-                let current = <?php echo time(); ?>;
+                let current = <?php echo (time() * 1000); ?>;
                 let left = checkout - current;
                 let timeObj = new Date();
                 // function timer( obj , chckout) {
                     //document.getElementById('timer').innerHTML = timeObj.toLocaleString([], {minute: '2-digit',second: '2-digit'});
 
-                    function timer(){
-                        // if(typeof(timer.count) == 'undefined'){
-                            //     timer.count = left;
-                            // }
-                            timer.count = timer.count - 1000;
+                    function timer(left){
+                        if(typeof(timer.count) == 'undefined'){
+                                timer.count = left;
+                            }
+                            timer.count -= 1000;
                             timeObj.setTime(timer.count);
                             document.getElementById('timer').innerHTML = timeObj.toLocaleString([], {minute: '2-digit',second: '2-digit'});
                         }
                         
-                    timer.count = left;
-                    document.getElementById('left').innerHTML =timer.count;
-                    setInterval(timer, 1000);
+                    // timer.count = left;
+                    
+                    setInterval(timer, 1000, left);
                  //     let toCheck = chckout - current;
                 //     //использовать только один объект
 
