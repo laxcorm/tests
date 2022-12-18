@@ -29,7 +29,7 @@ var_dump($correct_answers);
 $correct_number = count($correct_answers);
 //закрыть сессию
 ?>
-
+<div><b>It's final</b></div>
 <div>
     <?php echo "Правильних відповідей $correct_number з $count"; ?>
 </div>
