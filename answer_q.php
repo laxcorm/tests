@@ -1,5 +1,4 @@
 <?php
-
 if (isset($_GET['new'])) {
     $id = $_SESSION['count'] + 1;
 } else {
@@ -13,7 +12,4 @@ if (isset($_GET['new'])) {
     require('select.php');
 }
 
-//for test id
-if (isset($id)) {
-    echo "id - $id";
-}
+

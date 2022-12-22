@@ -5,7 +5,12 @@
 // $db = new PDO($dsn, $user, $password);
 
 
+// $dsn = 'mysql:dbname=tests;host=localhost';
+// $user = 'myuser';
+// $password = 'aaaa';
+// $db = new PDO($dsn, $user, $password);
+
 $dsn = 'mysql:dbname=tests;host=localhost';
 $user = 'myuser';
-$password = 'aaaa';
+$password = 'qqqqqq';
 $db = new PDO($dsn, $user, $password);
