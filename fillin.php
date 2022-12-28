@@ -25,8 +25,8 @@ if (isset($test['answer'])) {
 }
 
 //настройка
-if ($_POST['input'] ?? false) {
-    echo $_POST['input'];
+if ($_POST['id'] ?? false) {
+    echo $_POST['id'];
 }
 // $_SESSION['answer'] = $test['answer'];
 // ${$test['answer']} = 'checked';
@@ -71,7 +71,7 @@ echo "<br>";
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <div class="input-group-text">
-                            <input type="radio" name="answ" value="answer_1" aria-label="Radio button for following text input" <?php echo $answer_1 ?? ''; ?>>
+                            <input type="radio" name="answer" value="answer_1" aria-label="Radio button for following text input" <?php echo $answer_1 ?? ''; ?>>
                         </div>
                     </div>
                     <input type="text" autocomplete="off" name="answer_1" class="form-control" aria-label="Text input with radio button" value="<?php echo $test['answer_1'] ?? ''; ?>">
@@ -81,7 +81,7 @@ echo "<br>";
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <div class="input-group-text">
-                            <input type="radio" name="answ" value="answer_2" aria-label="Radio button for following text input" <?php echo $answer_2 ?? ''; ?>>
+                            <input type="radio" name="answer" value="answer_2" aria-label="Radio button for following text input" <?php echo $answer_2 ?? ''; ?>>
                         </div>
                     </div>
                     <input type="text" autocomplete="off" name="answer_2" class="form-control" aria-label="Text input with radio button" value="<?php echo $test['answer_2'] ?? ''; ?>">
@@ -91,13 +91,13 @@ echo "<br>";
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <div class="input-group-text">
-                            <input type="radio" name="answ" value="answer_3" aria-label="Radio button for following text input" <?php echo $answer_3 ?? ''; ?>>
+                            <input type="radio" name="answer" value="answer_3" aria-label="Radio button for following text input" <?php echo $answer_3 ?? ''; ?>>
                         </div>
                     </div>
                     <input type="text" autocomplete="off" name="answer_3" class="form-control" aria-label="Text input with radio button" value="<?php echo $test['answer_3'] ?? ''; ?>">
                 </div>
             </div>
-            <div class="col-3"><button class="btn btn-outline-info" type="submit" name="input" value="<?php echo $id  /*select - выводить id*/ ?>">Save</button></div>
+            <div class="col-3"><button class="btn btn-outline-info" type="submit" name='id' value="<?php echo $id  /*select - выводить id*/ ?>">Save</button></div>
             <!-- вместо count вставить сессию - count -->
             <!-- <div class="col-3"><button class="btn btn-outline-info" type="submit" name="id" value="<?php //echo $count + 1 
                                                                                                         ?>">+</button></div> -->

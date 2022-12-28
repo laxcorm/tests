@@ -13,7 +13,7 @@ if (empty($test)) {
 
 <!doctype html>
 <html lang="en">
-<?php echo $count . "-" . $id  ?>
+<?php echo "<b>" . $id . " question from " . $count . "</b>"  ?>
 
 <head>
     <!-- Required meta tags -->
@@ -40,7 +40,9 @@ if (empty($test)) {
             <div class="col-6" id='timer'></div>
             <div class="col-3"><?php echo $_SESSION['checkout'] . " - " . microtime(); ?></div>
             <br>
-            <div id='left' class="col-3"></div>
+            <div class="col-3"><b>Left time</b>
+                <div id='left' class="col-3"></div>
+            </div>
             <script type="text/javascript">
                 let checkout = <?php echo $_SESSION['checkout']; ?>;
                 let current = <?php echo (time() * 1000); ?>;
@@ -54,7 +56,7 @@ if (empty($test)) {
                         timer.count = left;
                     }
                     timer.count -= 1000;
-                    if(timer.count<=0){
+                    if (timer.count <= 0) {
                         location.replace('/final.php');
                     }
                     timeObj.setTime(timer.count);
