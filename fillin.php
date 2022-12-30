@@ -17,8 +17,8 @@ require('mysql.php');
     }
  } */
 //require('step.php');
-require('answer_q.php');
 require('count.php');
+require('answer_q.php');
 //require('select.php');
 if (isset($test['answer'])) {
     ${$test['answer']} = 'checked';
