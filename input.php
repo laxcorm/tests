@@ -2,7 +2,7 @@
 session_start();
 require('mysql.php');
 $id = $_POST['id'];
-
+echo "<b>$id</b><br>";
 function input($stmt)
 {
 
@@ -14,10 +14,13 @@ function input($stmt)
 }
 
 if ($id > $_SESSION['count']) {
-    $query = 'INSERT INTO tests(id ,questions, answer_1,answer_2,answer_3, answer) VALUES(:id, :question, :answer_1, :answer_2, :answer_3, :answer)';
+    $query = 'INSERT INTO tests(id ,questions, answer_1,answer_2,answer_3, answer) VALUES(:id, :questions, :answer_1, :answer_2, :answer_3, :answer)';
 } else {
-    $query = 'UPDATE tests SET questions = :question, answer_1 = :answer_1, answer_2 = :answer_2 ,answer_3 = :answer_3, answer = :answer WHERE id=' . $id;
+    $query = 'UPDATE tests SET questions = :questions, answer_1 = :answer_1, answer_2 = :answer_2 ,answer_3 = :answer_3, answer = :answer WHERE id = :id';
 }
+
+// echo $query;
+
 $stmt = $db->prepare($query);
 if(input($stmt) && $id > $_SESSION['count']){
     $_SESSION['count'] = $id;

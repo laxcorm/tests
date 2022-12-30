@@ -61,7 +61,7 @@ echo "<br>";
                     <!-- <form> -->
                     <div class="form-group">
 
-                        <textarea class="form-control" name="question" row mt-3s="3">
+                        <textarea class="form-control" name="questions" row mt-3s="3">
                                 <?php echo $test['questions'] ?? '' ?>
                         </textarea>
                     </div>
