@@ -29,7 +29,6 @@ if (empty($test)) {
 <body>
 
     <div class="container">
-
         <?php if ($noanswer ?? false) : ?>
             <div class="alert alert-danger" role="alert">
                 Будь ласка, оберіть відповідь
@@ -37,19 +36,15 @@ if (empty($test)) {
         <?php endif ?>
 
         <div class="row mt-5">
-            <div class="col-6" id='timer'></div>
-            <div class="col-3"><?php echo $_SESSION['checkout'] . " - " . microtime(); ?></div>
-            <br>
             <div class="col-3"><b>Left time</b>
-                <div id='left' class="col-3"></div>
+                <div class="col-3" id='timer'></div>
+
             </div>
             <script type="text/javascript">
                 let checkout = <?php echo $_SESSION['checkout']; ?>;
                 let current = <?php echo (time() * 1000); ?>;
                 let left = checkout - current;
                 let timeObj = new Date();
-                // function timer( obj , chckout) {
-                //document.getElementById('timer').innerHTML = timeObj.toLocaleString([], {minute: '2-digit',second: '2-digit'});
 
                 function timer(left) {
                     if (typeof(timer.count) == 'undefined') {
@@ -66,29 +61,7 @@ if (empty($test)) {
                     });
                 }
 
-                // timer.count = left;
-
                 setInterval(timer, 1000, left);
-                //     let toCheck = chckout - current;
-                //     //использовать только один объект
-
-                //    // obj.setTime(toCheck);
-                //     obj.setTime(chckout);
-
-                //     document.getElementById("timer").innerHTML = obj.toLocaleString([], {
-                //         minute: '2-digit',
-                //         second: '2-digit'
-                //     });
-                // }
-
-                // // const timer = time => document.getElementById('timer').innerHTML = fmt(time);
-
-                // //let dateObj = new Date();
-                // let dateObj = new Date();
-
-                // document.addEventListener('DOMContentLoaded', function() {
-                //     setInterval(timer, 100, dateObj, checkout);
-                // }, false);
             </script>
             <div class="col-12">
                 <p>
