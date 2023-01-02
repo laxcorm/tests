@@ -12,8 +12,8 @@ if (empty($test)) {
 ?>
 
 <!doctype html>
-<html lang="en">
-<?php echo "<b>" . $id . " question from " . $count . "</b>"  ?>
+<html lang="en" class="h-100">
+
 
 <head>
     <!-- Required meta tags -->
@@ -26,9 +26,9 @@ if (empty($test)) {
     <title>Test</title>
 </head>
 
-<body>
+<body class="h-100">
 
-    <div class="container">
+    <div class="container h-25">
         <?php if ($noanswer ?? false) : ?>
             <div class="alert alert-danger" role="alert">
                 Будь ласка, оберіть відповідь
@@ -36,10 +36,10 @@ if (empty($test)) {
         <?php endif ?>
 
         <div class="row mt-5">
-            <div class="col-3"><b>Left time</b>
-                <div class="col-3" id='timer'></div>
-
+            <div class="col-5"><b>Left time</b>
+                <span id='timer'></span>
             </div>
+            <div class="col-7"><?php echo "<b>" . $id . " question from " . $count . "</b>"  ?></div>
             <script type="text/javascript">
                 let checkout = <?php echo $_SESSION['checkout']; ?>;
                 let current = <?php echo (time() * 1000); ?>;
@@ -63,35 +63,38 @@ if (empty($test)) {
 
                 setInterval(timer, 1000, left);
             </script>
-            <div class="col-12">
-                <p>
-                    <?php echo $test['questions']; ?>
-                </p>
+        </div>
+        <div class="row mt-5 h-25">
+            <div class="col-12 border border-primary">
+                <?php echo $test['questions']; ?>
             </div>
         </div>
+        <div class="row">
 
-        <form action="<?php echo $_SERVER['SCRIPT_NAME'] ?>" method="get">
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="answ" id="first" value="answer_1" <?php echo $answer_1 ?? ''; ?>>
-                <label class=" form-check-label" for="first">
-                    <?php echo $test['answer_1']; ?>
-                </label>
+            <div class="pl-4 pr-4 pt-2 pb-2 mt-5 border border-dark">
+                <form action="<?php echo $_SERVER['SCRIPT_NAME'] ?>" method="get">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="answ" id="first" value="answer_1" <?php echo $answer_1 ?? ''; ?>>
+                        <label class=" form-check-label" for="first">
+                            <?php echo $test['answer_1']; ?>
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="answ" id="second" value="answer_2" <?php echo $answer_2  ?? ''; ?>>
+                        <label class="form-check-label" for="second">
+                            <?php echo $test['answer_2']; ?>
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="answ" id="third" value="answer_3" <?php echo $answer_3 ?? ''; ?>>
+                        <label class="form-check-label" for="third">
+                            <?php echo $test['answer_3']; ?>
+                        </label>
+                    </div>
+                    <?php require('arrows.php'); ?>
+                </form>
             </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="answ" id="second" value="answer_2" <?php echo $answer_2  ?? ''; ?>>
-                <label class="form-check-label" for="second">
-                    <?php echo $test['answer_2']; ?>
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="answ" id="third" value="answer_3" <?php echo $answer_3 ?? ''; ?>>
-                <label class="form-check-label" for="third">
-                    <?php echo $test['answer_3']; ?>
-                </label>
-            </div>
-            <?php require('arrows.php'); ?>
-
-        </form>
+        </div>
 
     </div>
 

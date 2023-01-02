@@ -2,7 +2,7 @@
 session_start();
 require('mysql.php');
 $id = $_POST['id'];
-echo "<b>$id</b><br>";
+
 function input($stmt)
 {
 
@@ -10,7 +10,7 @@ function input($stmt)
         $$key = trim($value);
         $stmt->bindValue(":" . $key, $$key, is_string($value) ? PDO::PARAM_STR : PDO::PARAM_INT);
     }
-   return $stmt->execute();
+    return $stmt->execute();
 }
 
 if ($id > $_SESSION['count']) {
@@ -19,11 +19,9 @@ if ($id > $_SESSION['count']) {
     $query = 'UPDATE tests SET questions = :questions, answer_1 = :answer_1, answer_2 = :answer_2 ,answer_3 = :answer_3, answer = :answer WHERE id = :id';
 }
 
-// echo $query;
-
 $stmt = $db->prepare($query);
-if(input($stmt) && $id > $_SESSION['count']){
+if (input($stmt) && $id > $_SESSION['count']) {
     $_SESSION['count'] = $id;
 }
 
-header("Location: http://".$_SERVER['HTTP_HOST']."/fillin.php?id=1");
+header("Location: http://" . $_SERVER['HTTP_HOST'] . "/fillin.php?id=1");

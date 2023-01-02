@@ -65,7 +65,7 @@ if (
 } else {
     $id = 1;
     if (!isset($_SESSION['checkout'])) {
-        $_SESSION['checkout'] = (time() + 181) * 1000;
+        $_SESSION['checkout'] = (time() + 1810) * 1000;
     }
 }
 
