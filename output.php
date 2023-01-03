@@ -64,9 +64,13 @@ if (empty($test)) {
                 setInterval(timer, 1000, left);
             </script>
         </div>
-        <div class="row mt-5 h-25">
-            <div class="col-12 border border-primary">
-                <?php echo $test['questions']; ?>
+        <div class="row mt-5 h-25 border border-danger">
+            <div class="col-3"></div>
+            <div class="col-6  h-100 border border-primary">
+
+                <div class="row h-100">
+                    <div class="col align-self-center border border-info"><?php echo $test['questions']; ?></div>
+                </div>
             </div>
         </div>
         <div class="row">
