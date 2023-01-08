@@ -49,6 +49,7 @@ echo "<br>";
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- <link href="" rel="stylesheet" type="text/css"> -->
     <title>Admin</title>
 </head>
 
@@ -57,7 +58,8 @@ echo "<br>";
     <div class="container">
         <form method="post" action="<?php echo 'input.php'; ?> ">
             <div class="row mt-3">
-                <div class="col">
+                <div class="col-3"></div>
+                <div class="col-6">
                     <!-- <form> -->
                     <div class="form-group">
 
@@ -67,59 +69,80 @@ echo "<br>";
                     </div>
                 </div>
             </div>
-            <div class="row mt-3">
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <div class="input-group-text">
-                            <input type="radio" name="answer" value="answer_1" aria-label="Radio button for following text input" <?php echo $answer_1 ?? ''; ?>>
+            <div class="row mt-2">
+                <div class="col-3"></div>
+                <div class="col-6">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <input type="radio" name="answer" value="answer_1" aria-label="Radio button for following text input" <?php echo $answer_1 ?? ''; ?>>
+                            </div>
                         </div>
+                        <input type="text" autocomplete="off" name="answer_1" class="form-control" aria-label="Text input with radio button" value="<?php echo $test['answer_1'] ?? ''; ?>">
                     </div>
-                    <input type="text" autocomplete="off" name="answer_1" class="form-control" aria-label="Text input with radio button" value="<?php echo $test['answer_1'] ?? ''; ?>">
                 </div>
             </div>
-            <div class=" row mt-3">
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <div class="input-group-text">
-                            <input type="radio" name="answer" value="answer_2" aria-label="Radio button for following text input" <?php echo $answer_2 ?? ''; ?>>
+            <div class="row mt-2">
+                <div class="col-3"></div>
+                <div class="col-6 border border-dark">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <input type="radio" name="answer" value="answer_2" aria-label="Radio button for following text input" <?php echo $answer_2 ?? ''; ?>>
+                            </div>
                         </div>
+                        <input type="text" autocomplete="off" name="answer_2" class="form-control" aria-label="Text input with radio button" value="<?php echo $test['answer_2'] ?? ''; ?>">
                     </div>
-                    <input type="text" autocomplete="off" name="answer_2" class="form-control" aria-label="Text input with radio button" value="<?php echo $test['answer_2'] ?? ''; ?>">
                 </div>
             </div>
-            <div class="row mt-3">
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <div class="input-group-text">
-                            <input type="radio" name="answer" value="answer_3" aria-label="Radio button for following text input" <?php echo $answer_3 ?? ''; ?>>
+            <div class="row mt-2">
+                <div class="col-3"></div>
+                <div class="col-6">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <input type="radio" name="answer" value="answer_3" aria-label="Radio button for following text input" <?php echo $answer_3 ?? ''; ?>>
+                            </div>
                         </div>
+                        <input type="text" autocomplete="off" name="answer_3" class="form-control" aria-label="Text input with radio button" value="<?php echo $test['answer_3'] ?? ''; ?>">
                     </div>
-                    <input type="text" autocomplete="off" name="answer_3" class="form-control" aria-label="Text input with radio button" value="<?php echo $test['answer_3'] ?? ''; ?>">
                 </div>
             </div>
-            <div class="col-3"><button class="btn btn-outline-info" type="submit" name='id' value="<?php echo $id  /*select - выводить id*/ ?>">Save</button></div>
+            <div class="row mt-2">
+                <div class="col-6"></div>
+                <div class="col-1 border border-dark"><button class="btn btn-primary" type="submit" name='id' value="<?php echo $id  /*select - выводить id*/ ?>">Save</button></div>
+                <div class="col-1"></div>
+                <div class="col-1 border border-dark"><a href="delete.php?id=<?php echo $id ?>" class="btn btn-danger" role="button">Delete</a></div>
+            </div>
+
+
             <!-- вместо count вставить сессию - count -->
             <!-- <div class="col-3"><button class="btn btn-outline-info" type="submit" name="id" value="<?php //echo $count + 1 
                                                                                                         ?>">+</button></div> -->
         </form>
-        <div class="row mt-3">
-            <?php //if (!$id) : 
-            ?>
+        <div class="row mt-5">
+            <div class="col-4 border border-dark"></div>
+
             <!-- <div class=" col-3"> <button class="btn btn-outline-info" type="submit" name="test" value="<?php echo $id ?>"> <span class="material-icons">arrow_back_ios</span></button></div> -->
 
-            <?php if ($id <= $count) : ?>
-                <a href="<?php echo $_SERVER['SCRIPT_NAME'] . '?new' ?>" class="btn btn-primary btn-lg" role="button">+</a>
-                <a href="delete.php?id=<?php echo $id ?>" class="btn btn-primary btn-lg" role="button">Delete</a>
-            <?php endif ?>
+            <?php
+            if ($id <= $_SESSION['count']) {
+                require('arrows_fil.php');
+            }
+            ?>
 
+            <div class="col-2 border border-dark">
+                <?php if ($id <= $count) : ?>
+                    <a href="<?php echo $_SERVER['SCRIPT_NAME'] . '?new' ?>" class="btn btn-primary" role="button">Add question</a>
+                <?php endif ?>
+            </div>
             <!-- <div class="col-3"><button class="btn btn-outline-info" type="submit" name="test" value="<?php echo $_SERVER['SCRIPT_NAME'] ?>">+</button></div> -->
             <!-- <div class="col-3"><button class="btn btn-outline-info" type="submit" name="test" value="delete.php?id=<?php echo $id ?>">Delete</button></div> -->
 
             <!-- <div class=" col-3"> <button class="btn btn-outline-info" type="submit" name="test" value="<?php echo $id ?>"> <span class="material-icons">arrow_back_ios</span></button></div> -->
             <!-- <div class="col-3"> <button class="btn btn-outline-info" type="submit" name="test" value="<?php echo $id ?>"><span class="material-icons"> arrow_forward_ios</span></button></div> -->
 
-            <?php //endif 
-            ?>
+
             <!-- <div class="col"><input class="btn btn-primary" type="submit" value="Submit"></div>
                 <span class="material-icons">
                     arrow_back
@@ -128,16 +151,10 @@ echo "<br>";
                     arrow_forward
                 </span> -->
         </div>
+
         <div class="row mt-3">
-            <?php
-            if ($id <= $_SESSION['count']) {
-                require('arrows_fil.php');
-            }
-            ?>
-        </div>
-        <div class="row mt-3">
-        <a href="logout.php" class="btn btn-secondary btn-lg" role="button">Logout</a>
-                
+            <a href="logout.php" class="btn btn-secondary btn-lg" role="button">Logout</a>
+
         </div>
     </div>
 

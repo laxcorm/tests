@@ -36,10 +36,11 @@ if (empty($test)) {
         <?php endif ?>
 
         <div class="row mt-5">
-            <div class="col-5"><b>Left time</b>
+            <div class="col-3"></div>
+            <div class="col-3 text-info"><b>Left time</b>
                 <span id='timer'></span>
             </div>
-            <div class="col-7"><?php echo "<b>" . $id . " question from " . $count . "</b>"  ?></div>
+            <div class="col-6 text-info"><?php echo "<b>" . $id . " question from " . $count . "</b>"  ?></div>
             <script type="text/javascript">
                 let checkout = <?php echo $_SESSION['checkout']; ?>;
                 let current = <?php echo (time() * 1000); ?>;
@@ -64,18 +65,19 @@ if (empty($test)) {
                 setInterval(timer, 1000, left);
             </script>
         </div>
-        <div class="row mt-5 h-25 border border-danger">
+        <div class="row mt-5 h-25">
             <div class="col-3"></div>
-            <div class="col-6  h-100 border border-primary">
+            <div class="col-6  h-100 border border-info rounded">
 
-                <div class="row h-100">
-                    <div class="col align-self-center border border-info"><?php echo $test['questions']; ?></div>
+                <div class="row h-100 align-items-center pl-2">
+                    <!-- <div class="col align-self-center border border-info"> --><?php echo $test['questions']; ?><!-- </div> -->
                 </div>
             </div>
         </div>
         <div class="row">
-
-            <div class="pl-4 pr-4 pt-2 pb-2 mt-5 border border-dark">
+            <div class="col-3"></div>
+            <div class="col-6 pl-4 pr-4 pt-2 pb-2 mt-5 border rounded border-dark">
+                <!-- <legend class="text-center">Please choose answer</legend> -->
                 <form action="<?php echo $_SERVER['SCRIPT_NAME'] ?>" method="get">
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="answ" id="first" value="answer_1" <?php echo $answer_1 ?? ''; ?>>
